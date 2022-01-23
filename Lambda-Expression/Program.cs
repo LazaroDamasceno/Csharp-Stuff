@@ -20,6 +20,18 @@ namespace Udemy
 
             Func<int, int> multiplication = number => number * 2;
             Console.WriteLine(multiplication(12));
+            
+            Func<int, int, int> sum2 = (a, b) => a + b;
+            Console.WriteLine(sum2(10,12));
+
+            Func<int, int, int> difference2 = (a, b) => a - b;
+            Console.WriteLine(difference2(12,10));
+
+            Func<int, int, int> division2 = (a, b) => a / b;
+            Console.WriteLine(division2(22,11));
+
+            Func<int, int, int> multiplication2 = (a, b) => a * b;
+            Console.WriteLine(multiplication2(10,12));
         }
     }
 }
