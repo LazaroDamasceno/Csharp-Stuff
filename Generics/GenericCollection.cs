@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +9,13 @@ namespace Generics
     internal class GenericCollection<T>
     {
         private T[] array = new T[1];
-        int mainIndex = 0;
+        private int mainIndex = 0;
         /*
         public void InsertAnyWhere(int index, T element) 
         {
             try
             {
+                T[] newArray = new T[array.Length+1];
 
             }
             catch (Exception)
@@ -199,11 +200,6 @@ namespace Generics
                 Console.Write(element + " ");
             }
             Console.WriteLine();
-        }
-
-        public void DisplayCurrentIndex()
-        {
-            Console.WriteLine(mainIndex);
         }
     }
 }
