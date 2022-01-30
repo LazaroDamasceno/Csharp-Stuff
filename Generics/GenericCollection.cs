@@ -10,7 +10,7 @@ namespace Generics
     {
         private T[] array = new T[1];
         int mainIndex = 0;
-        
+        /*
         public void InsertAnyWhere(int index, T element) 
         {
             try
@@ -22,7 +22,7 @@ namespace Generics
                 Console.WriteLine("InsertAnyWhere warning: An error has happened. Inform a valid index.");
             }
         }
-        
+        */
         public void InsertAtTheBegin(T element) 
         {
             T[] newArray = new T[array.Length+1];
