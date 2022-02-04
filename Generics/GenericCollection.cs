@@ -10,32 +10,45 @@ namespace Generics
     {
         private T[] array = new T[1];
         private int mainIndex = 0;
-        /*
-        public void InsertAnyWhere(int index, T element) 
+
+        public void InsertAnywhere(int index, T element)
         {
             try
             {
-                T[] newArray = new T[array.Length+1];
-
+                T[] newArray = new T[array.Length + 1];
+                newArray[index] = element;
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (i < index)
+                    {
+                        newArray[i] = array[i];
+                    }
+                    else if (i >= index)
+                    {
+                        newArray[i + 1] = array[i];
+                    }
+                } 
+                array = newArray;
+                mainIndex = array.Length;
             }
             catch (Exception)
             {
-                Console.WriteLine("InsertAnyWhere warning: An error has happened. Inform a valid index.");
+                Console.WriteLine("InsertAnywhere warning: The informed index is out of the boundaries.");
             }
         }
-        */
-        public void InsertAtTheBegin(T element) 
+        
+        public void InsertAtTheStart(T element) 
         {
-            T[] newArray = new T[array.Length+1];
+            T[] newArray = new T[array.Length + 1];
             newArray[0] = element;
             for (int i = 0; i < array.Length; i++)
             {
-                newArray[i+1] = array[i];
+                newArray[i + 1] = array[i];
             }
             array = newArray;
             mainIndex = array.Length;
         }
-
+        
         public void InsertAtTheEnd(T element)
         {
             if (mainIndex < array.Length)
@@ -44,7 +57,7 @@ namespace Generics
             }
             else
             {
-                T[] newArray = new T[array.Length+1];
+                T[] newArray = new T[array.Length + 1];
                 for (int i = 0; i < array.Length; i++)
                 {
                     newArray[i] = array[i];
@@ -105,7 +118,7 @@ namespace Generics
 
         public void RemoveFirst()
         {
-            T[] newArray = new T[array.Length-1];
+            T[] newArray = new T[array.Length - 1];
             for (int i = 1;i < array.Length;i++)
             {
                 newArray[i-1] = array[i];
@@ -117,7 +130,7 @@ namespace Generics
         public void RemoveLast()
         {
             T[] newArray = new T[array.Length - 1];
-            for (int i = 0; i < array.Length-1; i++)
+            for (int i = 0; i < array.Length - 1; i++)
             {
                 newArray[i] = array[i];
             }
@@ -150,7 +163,7 @@ namespace Generics
 
         public void Reverse() => Array.Reverse(array);
 
-        public void MaxElement() => Console.WriteLine(array.Max());
+        public void MaxElement() => Console.Write(array.Max());
 
         public void MinElement() => Console.WriteLine(array.Min());
         
@@ -178,7 +191,6 @@ namespace Generics
             {
                 Console.WriteLine("DisplayFromTo warning: An error has happened. Inform, two correct indexes.");
             }
-
         }
 
         public void DisplayElementAt(int index)
@@ -192,7 +204,7 @@ namespace Generics
                 Console.WriteLine("DisplayElementAt warning: An error has happened. Inform a valid index.");
             }
         }
-
+        
         public void DisplayAllElements()
         {
             foreach (T element in array)
