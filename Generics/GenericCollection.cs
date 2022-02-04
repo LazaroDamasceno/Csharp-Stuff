@@ -166,7 +166,27 @@ namespace Generics
         public void MaxElement() => Console.Write(array.Max());
 
         public void MinElement() => Console.WriteLine(array.Min());
-        
+
+        public void FindIndexes(T element)
+        {
+            if (array.Contains(element) == true)
+            {
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i].Equals(element) == true)
+                    {
+                        Console.Write(i + " ");
+                    }
+                }
+
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("FindIndexes warning: The given element does not exist in the array.");
+            }
+        }
+    
         public void Clear()
         {
             array = new T[1];
